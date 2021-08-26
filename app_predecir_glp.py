@@ -288,10 +288,10 @@ if left_column.button('Predecir el precio del GLP'):
     precio_glp_LR =  float(LR_model.predict([[precio_mont_belvieu, precio_dolar]]))
     precio_glp_SVR = float(SVR_model.predict([[precio_mont_belvieu, precio_dolar]]))
     left_column, right_column = st.columns(2)
-    left_column.markdown('> Modelo de Regresion Lineal')
+    left_column.subheader('Modelo de Regresion Lineal')
     left_column.markdown('**Precio GLP: **' + str(round(precio_glp_LR, 5)))
     left_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccionYPrediccion('regresion lineal', precio_mont_belvieu, precio_dolar, precio_glp_LR))
 
-    right_column.markdown('> Modelo de Regresion Polinomial')
+    right_column.subheader('Modelo de Regresion Polinomial')
     right_column.markdown('**Precio GLP: **' + str(round(precio_glp_SVR, 5)))
     right_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccionYPrediccion('regresion polinomial', precio_mont_belvieu, precio_dolar, precio_glp_SVR))
