@@ -213,7 +213,7 @@ st.sidebar.markdown('👩‍🏫 Zenaida Condori Apaza')
 st.sidebar.markdown('**Integrantes:**')
 st.sidebar.markdown('🌟 Deyvis Mamani Lacuta')
 st.sidebar.markdown('🌟 Edith Irene Ticona Laura')
-st.sidebar.markdown('🌟 Adiv Brander Carii Quispe')
+st.sidebar.markdown('🌟 Adiv Brander Cari Quispe')
 
 # Main content
 st.title('Modelos de Regresion para predecir el precio del GLP')
