@@ -202,6 +202,7 @@ def graficaScatter3DInteractivaYPlanoPrediccionYPrediccion(nombreModelo, value_m
     return fig
 # ================ END FUNCTIONS ================ 
 
+
 st.set_page_config(layout="wide")
 
 # Sidebar
@@ -219,7 +220,7 @@ st.sidebar.markdown('🌟 Adiv Brander Cari Quispe')
 st.title('Modelos de Regresion para predecir el precio del GLP')
 left_column, right_column = st.columns([3, 1])
 left_column.header('IMPORTANCIA')
-left_column.markdown('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.');
+left_column.markdown('El Gas Licuado de Petróleo (GLP), es considerado en el Perú, como el energético más importante en la canasta de consumo de combustibles. La importancia del uso del GLP radica en que al ser combustible cuya combustión es completa no contamina el ambiente, es utilizado principalmente en cocinas y hornos también es utilizado, pero en menos proporción, para la iluminación, para las termas y últimamente se está utilizando como combustible para los vehículos motorizados, además al ser usado en los hogares como fuente de energía se ayuda a preservar el ambiente ya que se deja de talar árboles para la producción de leña y carbón y a la vez se deja de lado el consumo del petróleo y el kerosene los cuales contaminan el ambiente. \nLa situación que se observa en el mercado de GLP es preocupante. En los últimos meses el precio del gas licuado en el Perú se ha incrementado en mayor ritmo que el precio de importación y ello afecta considerablemente en la economía de las familias');
 right_column.image('images/balon_gas.png', width = 170)
 st.markdown('---')
 
@@ -267,16 +268,15 @@ y_pred_SVR = SVR_model.predict(X_test)
 MSE_SVR = mean_squared_error(y_test, y_pred_SVR)
 
 
-#if st.button('Generar los Modelos de Regresion Lineal y polinomial'):
-if st.button('Generar modelo de Regresion Lineal y Polinomial'):
-    left_column, right_column = st.columns(2)
-    left_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccion('regresion lineal'), use_container_width=True)
-    left_column.markdown('> **Error cuadratico medio (20% data): **'+str(round(MSE_LR, 5)))
+left_column, right_column = st.columns(2)
+left_column.subheader('Modelo de Regresion Lineal')
+left_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccion('regresion lineal'), use_container_width=True)
+left_column.markdown('> **Error cuadratico medio (20% data): **'+str(round(MSE_LR, 5)))
 
-    right_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccion('regresion polinomial'), use_container_width=True)
-    right_column.markdown('> **Error cuadratico medio (20% data): **'+str(round(MSE_SVR, 5)))
-st.markdown('---')
-
+right_column.subheader('Modelo de Regresion Polinomial')
+right_column.plotly_chart(graficaScatter3DInteractivaYPlanoPrediccion('regresion polinomial'), use_container_width=True)
+right_column.markdown('> **Error cuadratico medio (20% data): **'+str(round(MSE_SVR, 5)))
+st.markdown('---') 
 
 
 st.header('Predecir el precio del GLP')
